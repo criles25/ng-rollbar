@@ -6,12 +6,7 @@
       return function (exception, cause) {
         if($window.Rollbar) {
           $window.Rollbar.error(exception, {cause: cause}, function(err, data) {
-            var $rootScope = $injector.get('$rootScope');
-            $rootScope.$emit('rollbar:exception', {
-              exception: exception,
-              err: err,
-              data: data.result
-            });
+            // we don't care
           });
         }
         $delegate(exception, cause);
